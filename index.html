@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cuenta Regresiva</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9; /* Color pastel */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffe4e1; /* Color pastel para el contenedor */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .countdown {
+            font-size: 48px;
+            color: #ff69b4; /* Color pastel */
+        }
+        #surpriseButton {
+            display: none;
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #add8e6; /* Color pastel */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        #surpriseButton:hover {
+            background-color: #87ceeb; /* Color pastel */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="countdown" id="countdown">00:00:00</div>
+        <button id="surpriseButton" onclick="window.location.href='carta.html'">Ver Sorpresa</button>
+    </div>
+
+    <script>
+        const countdownElement = document.getElementById('countdown');
+        const surpriseButton = document.getElementById('surpriseButton');
+        const countdownDate = new Date("february 14, 2025 00:00:00").getTime();
+
+        const countdownInterval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            // Mostrar botón cuando el contador llegue a 0
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                countdownElement.innerHTML = "¡Sorpresa!";
+                surpriseButton.style.display = "inline-block";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carta de Aniversario</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .envelope {
+            width: 300px;
+            height: 200px;
+            background-color: #ffe4e1;
+            position: relative;
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .envelope:hover {
+            transform: scale(1.05);
+        }
+
+        .envelope-front {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #ffe4e1;
+            border: 2px solid #ff69b4;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            color: #ff69b4;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background-color: #ffb6c1;
+            clip-path: polygon(0 0, 50% 100%, 100% 0);
+            z-index: 1;
+        }
+
+        .envelope-details {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            height: 40px;
+            border-top: 2px solid #ff69b4;
+            border-bottom: 2px solid #ff69b4;
+        }
+
+        .letter {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-y: auto;
+            z-index: 1000;
+        }
+
+        .letter h1 {
+            color: #ff69b4;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .letter p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .letter img {
+            display: block;
+            max-width: 100%;
+            margin: 30px auto;
+            border: 5px solid #ff69b4;
+            border-radius: 10px;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="envelope" id="envelope" onclick="showLetter()">
+            <div class="envelope-front">Para ti</div>
+            <div class="envelope-flap"></div>
+            <div class="envelope-details"></div>
+        </div>
+    </div>
+
+    <div class="letter" id="letter">
+        <span class="close-button" onclick="hideLetter()">&times;</span>
+        <h1>Feliz dia de San Valentin</h1>
+        <p>14 de febrero ... Más día de la amistad , que del amor en mi caso ....</p> 
+        <p>Hoy quiero escribirte a ti TALIANA , quiero decir "gracias" pero a mayor escala:</p>
+
+        <p>Llegaste... Cuando no todo era lindo , no todo era bueno.</p>
+        <p>Llegaste cuando simplemente todo me daba igual , cuando tenía un vacío que nada ni nadie había podido llenar , cuando habían días en los que me sentía triste de la nada sin saber porque , o cuando solo quería estar acostado y encerrado mientras me decían que era amargado...</p> 
+
+        <p>Te convertirse en .... Más que una amiga , una forma de vivir.... No lo sabes , porque nunca te lo dije , pero ya es buen tiempo para decirlo , eres esa persona que tanto pedí , y no me mal intérpretes...</p> 
+        <p>Pedí una persona con la cual pudiera sentirme yo mismo de nuevo , alguien con quien reír de todo , alguien con quien armar planes y hasta discutir sin dejar de hablar por semanas...</p> 
+        <p>Nunca pensé que esa persona llegaría , pero aquí estás... </p>
+        <p>Te volviste parte de mi , y ahora que se quién eres , no estoy dispuesto a dejarte ir.</p> 
+
+        <p>Ahora que se lo que es reír contigo , no estoy dispuesto a simplemente darte por sentado , no quiero cometer el mismo error de siempre , asumir que siempre estarás en mi vida...</p> 
+        <p>Quiero pensar que cada día es el último , tal vez y así pueda disfrutar aún mucho más de lo que ya disfruto estando contigo...</p> 
+        <p>Dicen que los amigos no existen , pero déjame mostrarte que si , déjame mostrarte que encontraste a alguien dispuesto a estar contigo cuando el mundo este en tu contra...</p>
+        <p>De todos mis errores , saque algo bueno al final.</p>
+
+        <p>Decirte que te quiero, no es , ni será el 1% de lo que en verdad siento , la verdad es que no existen palabras que puedan igualar ese sentimiento tan grande.... </p>
+        <p>Solo te puedo decir que , eres parte de mi vida , eres más que importante para mí , no quiero que me faltes nunca , nunca pensé encontrar a alguien que se metiera tan rápido en mi vida y pudiese hacer reír tanto a alguien que solo sabía renegar y desconfiar ....</p> 
+        <p>Tal vez no sean flores o algo super costoso ... </p>
+        <p>Pero es con todo el corazón y con todo el amor del mundo , gracias por llegar a alegrarme la vida... Gracias por tanto cariño dado 🥹.</p>
+        <p>Te quiero✨🫶🏻🥹</p>
+
+        <p>FELIZ DÍA DE SAN VALENTÍN.</p> 
+        <p>TE QUIERO CON TODAS LAS FUERZAS DE MI ALMA</p> 
+        <p>🥰🫶🏻✨</p>
+        <img src="img/Amor y Amistad.jpeg" alt="TALIANA">
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="sound/Sebastian Yatra - Cristina (Letra).mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        function showLetter() {
+            document.getElementById('letter').style.display = 'block';
+            document.getElementById('backgroundMusic').play();
+        }
+
+        function hideLetter() {
+            document.getElementById('letter').style.display = 'none';
+            document.getElementById('backgroundMusic').pause();
+            document.getElementById('backgroundMusic').currentTime = 0;
+        }
+    </script>
+</body>
+</html>
